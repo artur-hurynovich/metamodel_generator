@@ -17,6 +17,8 @@ public class MetamodelGeneratorImpl implements MetamodelGenerator {
 
 	private static final String INDENT = "    ";
 
+	private static final String FIELD_NAME_SEPARATOR = "_";
+
 	@Override
 	public void generate(final TypeElement typeElement, final ProcessingEnvironment processingEnv) throws IOException {
 		final TypeSpec.Builder classBuilder = TypeSpec.
@@ -36,10 +38,24 @@ public class MetamodelGeneratorImpl implements MetamodelGenerator {
 	private FieldSpec buildField(final Element fieldElement) {
 		final String fieldElementName = fieldElement.getSimpleName().toString();
 		return FieldSpec.
-				builder(ClassName.get(String.class), fieldElementName.toUpperCase()).
+				builder(ClassName.get(String.class), formatFieldName(fieldElementName)).
 				addModifiers(Modifier.PUBLIC, Modifier.STATIC, Modifier.FINAL).
 				initializer("\"" + fieldElementName + "\"").
 				build();
+	}
+
+	public String formatFieldName(final String originalName) {
+		final StringBuilder formattedFieldNameBuilder = new StringBuilder();
+		for (int i = 0; i < originalName.length(); i++) {
+			final char c = originalName.charAt(i);
+			if (Character.isUpperCase(c)) {
+				formattedFieldNameBuilder.append(FIELD_NAME_SEPARATOR);
+			}
+
+			formattedFieldNameBuilder.append(Character.toUpperCase(c));
+		}
+
+		return formattedFieldNameBuilder.toString();
 	}
 
 }

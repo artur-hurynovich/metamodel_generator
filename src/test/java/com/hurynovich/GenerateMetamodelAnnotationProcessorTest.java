@@ -23,18 +23,18 @@ public class GenerateMetamodelAnnotationProcessorTest {
 						"@GenerateMetamodel",
 						"public class TestObject {",
 						"	private Long id;",
-						"	private String name;",
+						"	private String objectName;",
 						"	public Long getId() {",
 						"		return id;",
 						"	}",
 						"	public void setId(Long id) {",
 						"		this.id = id;",
 						"	}",
-						"	public String getName() {",
-						"		return name;",
+						"	public String getObjectName() {",
+						"		return objectName;",
 						"	}",
-						"	public void setName(String name) {",
-						"		this.name = name;",
+						"	public void setObjectName(String objectName) {",
+						"		this.objectName = objectName;",
 						"	}",
 						"}"
 				)
@@ -50,7 +50,7 @@ public class GenerateMetamodelAnnotationProcessorTest {
 						"public abstract class TestObject_ {",
 						"	public static final String ID = \"id\";",
 						"",
-						"	public static final String NAME = \"name\";",
+						"	public static final String OBJECT_NAME = \"objectName\";",
 						"}"
 				)
 		);
