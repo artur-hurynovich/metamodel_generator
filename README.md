@@ -6,7 +6,7 @@ you have a class:
 
     private Long id;
 
-    private String name;
+    private String objectName;
 
     private TestInnerObject inner;
     
@@ -17,7 +17,7 @@ Generated metamodel will be:
 ```java
   public abstract class TestObject_ {
       public static final String ID = "id";
-      public static final String NAME = "name";
+      public static final String OBJECT_NAME = "objectName";
       public static final String INNER = "inner";
 
       public TestObject_() {
