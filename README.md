@@ -29,10 +29,11 @@ If you also need TestInnerObject metamodel, it should be annotated with @Generat
 
 This annotation processor is not published to maven central repo, so if you want to use it, you can download it and publish to your local maven repo ('mvn clean install'). After 
 this you can add a dependency to your project:
+```
   <dependency>
-		<groupId>com.hurynovich</groupId>
-		<artifactId>metamodel_generator</artifactId>
-		<version>1.0-SNAPSHOT</version>
-	</dependency>
-  
+    <groupId>com.hurynovich</groupId>
+    <artifactId>metamodel_generator</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </dependency>
+```  
   For usage example see com.hurynovich.data_storage.dao.impl.DataUnitDAOImpl in https://github.com/artur-hurynovich/data-storage
