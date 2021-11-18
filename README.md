@@ -1,6 +1,6 @@
 A simple annotation processor for generating class metamodel at compile phase. Class should be annotated with @GenerateMetamodel. Generation is performed NOT recursively, e. g. 
 you have a class:
-```
+```java
   @GenerateMetamodel
   public class TestObject {
 
@@ -14,7 +14,7 @@ you have a class:
 ```
 
 Generated metamodel will be:
-```
+```java
   public abstract class TestObject_ {
       public static final String ID = "id";
       public static final String NAME = "name";
