@@ -1,11 +1,11 @@
 package com.hurynovich;
 
-import javax.annotation.processing.ProcessingEnvironment;
+import com.squareup.javapoet.JavaFile;
+
 import javax.lang.model.element.TypeElement;
-import java.io.IOException;
 
 public interface MetamodelGenerator {
 
-	void generate(TypeElement typeElement, ProcessingEnvironment processingEnv) throws IOException;
+	JavaFile generate(TypeElement typeElement);
 
 }

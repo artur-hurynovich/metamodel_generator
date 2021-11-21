@@ -5,11 +5,9 @@ import com.squareup.javapoet.FieldSpec;
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.TypeSpec;
 
-import javax.annotation.processing.ProcessingEnvironment;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
-import java.io.IOException;
 
 public class MetamodelGeneratorImpl implements MetamodelGenerator {
 
@@ -20,7 +18,7 @@ public class MetamodelGeneratorImpl implements MetamodelGenerator {
 	private static final String FIELD_NAME_SEPARATOR = "_";
 
 	@Override
-	public void generate(final TypeElement typeElement, final ProcessingEnvironment processingEnv) throws IOException {
+	public JavaFile generate(final TypeElement typeElement) {
 		final TypeSpec.Builder classBuilder = TypeSpec.
 				classBuilder(typeElement.getSimpleName() + METAMODEL_NAME_POSTFIX).
 				addModifiers(Modifier.PUBLIC, Modifier.ABSTRACT);
@@ -28,11 +26,10 @@ public class MetamodelGeneratorImpl implements MetamodelGenerator {
 				filter(element -> element.getKind().isField()).
 				forEach(fieldElement -> classBuilder.addField(buildField(fieldElement)));
 
-		JavaFile.
+		return JavaFile.
 				builder(ClassName.get(typeElement).packageName(), classBuilder.build()).
 				indent(INDENT).
-				build().
-				writeTo(processingEnv.getFiler());
+				build();
 	}
 
 	private FieldSpec buildField(final Element fieldElement) {
