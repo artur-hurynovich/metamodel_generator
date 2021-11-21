@@ -36,4 +36,4 @@ this you can add a dependency to your project:
     <version>1.0-SNAPSHOT</version>
   </dependency>
 ```  
-  For usage example see com.hurynovich.data_storage.dao.impl.DataUnitDAOImpl in https://github.com/artur-hurynovich/data-storage
+  For usage example see com.hurynovich.data_storage.dao.impl.DataUnitQueryBuilderImpl in https://github.com/artur-hurynovich/data-storage
